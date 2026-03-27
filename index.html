@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Vikash Kumar – DevOps Engineer | AWS, Kubernetes, Terraform, CI/CD, Automation, Monitoring."
+    content="Vikash Kumar - DevOps Engineer | AWS, Kubernetes, Terraform, CI/CD, Automation, Monitoring."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,730 +54,10 @@
       text-decoration: none;
     }
 
-    /* Layout */
     .page {
       max-width: 1120px;
       margin: 0 auto;
       padding: 20px 18px 40px;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(14px);
-      background: transparent; /* transparent navbar */
-      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
-    }
-
-    .nav {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 10px 18px 8px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-dot {
-      width: 30px;
-      height: 30px;
-      border-radius: var(--radius-full);
-      background:
-        radial-gradient(circle at 30% 10%, #e9d5ff 0, #a855f7 30%, #7c3aed 55%, #312e81 100%);
-      box-shadow:
-        0 0 22px rgba(129, 140, 248, 0.9),
-        0 0 60px rgba(168, 85, 247, 0.75);
-    }
-
-    .brand-title {
-      font-family: "Space Grotesk", system-ui, sans-serif;
-      font-size: 24px; /* increased size */
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .brand-sub {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 14px;
-      font-size: 14px;
-      color: var(--muted);
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: background var(--transition-fast),
-                  border-color var(--transition-fast),
-                  color var(--transition-fast),
-                  transform 140ms ease-out;
-      cursor: pointer;
-    }
-
-    .nav-links a:hover {
-      background: rgba(17, 24, 39, 0.92);
-      border-color: rgba(168, 85, 247, 0.85);
-      color: #f9fafb;
-      transform: translateY(-1px);
-    }
-
-    main {
-      margin-top: 18px;
-    }
-
-    section {
-      margin-bottom: 72px; /* more gap between sections */
-      scroll-margin-top: 100px; /* offset for nav scroll */
-    }
-
-    /* Hero */
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
-      gap: 32px;
-      align-items: center;
-    }
-
-    @media (max-width: 860px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: radial-gradient(circle at top left,
-        rgba(129, 140, 248, 0.25),
-        rgba(17, 24, 39, 0.96)
-      );
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #e5e7eb;
-    }
-
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 6px rgba(168, 85, 247, 0.32);
-      position: relative;
-      overflow: visible;
-    }
-
-    .pulse-dot::after {
-      content: "";
-      position: absolute;
-      inset: -4px;
-      border-radius: inherit;
-      border: 1px solid rgba(168, 85, 247, 0.6);
-      animation: pulse 1.6s infinite ease-out;
-    }
-
-    @keyframes pulse {
-      from {
-        opacity: 1;
-        transform: scale(1);
-      }
-      to {
-        opacity: 0;
-        transform: scale(1.75);
-      }
-    }
-
-    .hero-title {
-      font-family: "Space Grotesk", system-ui, sans-serif;
-      font-size: clamp(34px, 4.4vw, 48px);
-      line-height: 1.15;
-      font-weight: 700;
-    }
-
-    .hero-title span {
-      background: linear-gradient(to right, #a855f7, #6366f1, #ec4899);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero-subtitle {
-      font-size: 15px;
-      color: var(--muted);
-      max-width: 540px;
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 12px;
-    }
-
-    .badge {
-      border-radius: 999px;
-      padding: 5px 10px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: radial-gradient(circle at top left,
-        rgba(148, 163, 184, 0.28),
-        rgba(15, 23, 42, 0.95)
-      );
-      color: #e5e7eb;
-    }
-
-    .badge.accent {
-      border-color: rgba(168, 85, 247, 0.85);
-      background: radial-gradient(circle at top left,
-        rgba(168, 85, 247, 0.22),
-        rgba(15, 23, 42, 0.96)
-      );
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 4px;
-    }
-
-    .btn {
-      padding: 9px 18px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition:
-        background var(--transition-fast),
-        color var(--transition-fast),
-        border-color var(--transition-fast),
-        transform 140ms ease-out,
-        box-shadow var(--transition-fast);
-      text-decoration: none;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #a855f7, #6366f1);
-      color: #020617;
-      box-shadow:
-        0 12px 32px rgba(88, 28, 135, 0.55),
-        0 0 0 1px rgba(15, 23, 42, 0.9);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow:
-        0 18px 40px rgba(79, 70, 229, 0.7),
-        0 0 0 1px rgba(15, 23, 42, 0.9);
-    }
-
-    .btn-ghost {
-      border-color: rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.92);
-      color: var(--text);
-    }
-
-    .btn-ghost:hover {
-      background: rgba(76, 29, 149, 0.85);
-      border-color: rgba(196, 181, 253, 0.9);
-      transform: translateY(-1px);
-    }
-
-    .btn span.icon {
-      font-size: 16px;
-      line-height: 1;
-    }
-
-    /* Hero right - illustration */
-    .hero-right {
-      justify-self: stretch;
-    }
-
-    .hero-illustration {
-      border-radius: 24px;
-      padding: 14px;
-      background: radial-gradient(circle at top, #111827, #020617 60%, #020617 100%);
-      border: 1px solid rgba(129, 140, 248, 0.6);
-      box-shadow: var(--shadow-soft);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-illustration img {
-      max-width: 100%;
-      display: block;
-      border-radius: 20px;
-    }
-
-    /* Example cartoon illustration from unDraw (you can replace URL if you want) */
-    /* Sections generic */
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
-
-    .section-title {
-      font-family: "Space Grotesk", system-ui, sans-serif;
-      font-size: 21px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .section-subtitle {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    @media (max-width: 860px) {
-      .card-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .card {
-      border-radius: var(--radius-xl);
-      padding: 14px 14px 12px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.75);
-      transition:
-        transform 150ms ease-out,
-        box-shadow 150ms ease-out,
-        border-color 150ms ease-out,
-        background 150ms ease-out;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 38px rgba(15, 23, 42, 0.9);
-      border-color: rgba(129, 140, 248, 0.9);
-      background: radial-gradient(circle at top, #020617, #020617 60%, #020617 100%);
-    }
-
-    .card-heading {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 6px;
-    }
-
-    .card-title {
-      font-size: 16px;
-      font-weight: 600;
-    }
-
-    .card-meta {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
-    }
-
-    .tag {
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(55, 65, 81, 0.95);
-      font-size: 12px;
-      color: #cbd5f5;
-      background: rgba(15, 23, 42, 0.98);
-    }
-
-    .tag.accent {
-      border-color: rgba(168, 85, 247, 0.9);
-      background: rgba(76, 29, 149, 0.35);
-      color: #e9d5ff;
-    }
-
-    .card-body {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.5;
-      margin-top: 4px;
-    }
-
-    .card-list {
-      margin-top: 6px;
-      padding-left: 16px;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .card-list li {
-      margin-bottom: 3px;
-    }
-
-    /* Skills */
-    .skills-wrapper {
-      display: grid;
-      grid-template-columns: 1.3fr 1.1fr;
-      gap: 16px;
-    }
-
-    @media (max-width: 860px) {
-      .skills-wrapper {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .pill-cloud {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .pill {
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: rgba(15, 23, 42, 0.95);
-      font-size: 13px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .pill-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--accent);
-    }
-
-    .skills-summary {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-
-    .skills-highlight {
-      font-size: 13px;
-      border-radius: 14px;
-      padding: 8px 10px;
-      border: 1px dashed rgba(168, 85, 247, 0.9);
-      background: rgba(46, 16, 101, 0.35);
-      color: #e9d5ff;
-    }
-
-    /* Services section */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    @media (max-width: 860px) {
-      .services-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .service-icon {
-      font-size: 24px;
-      margin-right: 6px;
-    }
-
-    .service-preview {
-      font-size: 14px;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    .service-more {
-      margin-top: 6px;
-      font-size: 13px;
-      color: var(--muted);
-      display: none;
-    }
-
-    .service-more.visible {
-      display: block;
-    }
-
-    .service-readmore {
-      margin-top: 8px;
-      font-size: 12px;
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(129, 140, 248, 0.9);
-      background: rgba(15, 23, 42, 0.95);
-      color: #e5e7eb;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: background 150ms ease-out, transform 120ms ease-out;
-    }
-
-    .service-readmore:hover {
-      background: rgba(76, 29, 149, 0.85);
-      transform: translateY(-1px);
-    }
-
-    /* Contact */
-    .contact-card {
-      border-radius: 18px;
-      padding: 16px 16px 14px;
-      background: radial-gradient(circle at top left,
-        rgba(76, 29, 149, 0.45),
-        rgba(15, 23, 42, 0.98)
-      );
-      border: 1px solid rgba(168, 85, 247, 0.8);
-      box-shadow:
-        0 18px 40px rgba(76, 29, 149, 0.6),
-        0 0 0 1px rgba(15, 23, 42, 0.9);
-      display: grid;
-      grid-template-columns: minmax(0, 2.4fr) minmax(0, 1.8fr);
-      gap: 14px;
-      align-items: flex-start;
-    }
-
-    @media (max-width: 780px) {
-      .contact-card {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .contact-title {
-      font-family: "Space Grotesk", system-ui, sans-serif;
-      font-size: 19px;
-      margin-bottom: 4px;
-    }
-
-    .contact-text {
-      font-size: 14px;
-      color: #e5e7eb;
-      margin-bottom: 10px;
-    }
-
-    .contact-detail-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-size: 12px;
-      color: #e5e7eb;
-      margin-top: 4px;
-      align-items: center;
-    }
-
-    .contact-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85);
-    }
-
-    .contact-item span.icon {
-      font-size: 14px;
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      font-size: 13px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .form-group label {
-      font-size: 13px;
-      color: #e5e7eb;
-    }
-
-    .form-input,
-    .form-select {
-      width: 100%;
-      padding: 7px 9px;
-      border-radius: 10px;
-      border: 1px solid rgba(148, 163, 184, 0.75);
-      background: rgba(15, 23, 42, 0.92);
-      color: #e5e7eb;
-      font-size: 13px;
-      outline: none;
-      transition:
-        border-color 150ms ease-out,
-        box-shadow 150ms ease-out,
-        background 150ms ease-out;
-    }
-    /* Hamburger button (hidden on desktop) */
-.nav-toggle {
-  display: none;
-  font-size: 26px;
-  background: none;
-  border: none;
-  color: var(--text);
-  cursor: pointer;
-  padding: 6px 10px;
-}
-
-/* Mobile menu styles */
-@media (max-width: 760px) {
-  .nav-links {
-    position: absolute;
-    top: 58px;
-    right: 18px;
-    background: rgba(15, 23, 42, 0.95);
-    border: 1px solid rgba(148, 163, 184, 0.25);
-    border-radius: 12px;
-    padding: 12px;
-    flex-direction: column;
-    gap: 10px;
-    width: 180px;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10px);
-    transition: all 0.25s ease;
-  }
-
-  .nav-links a {
-    padding: 8px 10px;
-    display: block;
-    text-align: left;
-  }
-
-  .nav-links.active {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-
-  /* Show hamburger */
-  .nav-toggle {
-    display: block;
-  }
-}
-
-    .form-input:focus,
-    .form-select:focus {
-      border-color: rgba(168, 85, 247, 0.9);
-      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.75);
-      background: rgba(15, 23, 42, 0.98);
-    }
-
-    .form-hint {
-      font-size: 11px;
-      color: rgba(226, 232, 240, 0.8);
-    }
-
-    .contact-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: flex-end;
-      margin-top: 4px;
-    }
-
-    /* Social icons with tooltip */
-    .social-row {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .social-link {
-      position: relative;
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background 150ms ease-out, transform 120ms ease-out, border-color 150ms ease-out;
-      font-size: 16px;
-    }
-
-    .social-link:hover {
-      background: rgba(76, 29, 149, 0.85);
-      border-color: rgba(196, 181, 253, 0.9);
-      transform: translateY(-1px);
-    }
-
-    .social-link .tooltip {
-      position: absolute;
-      bottom: -28px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(15, 23, 42, 0.96);
-      color: #e5e7eb;
-      padding: 4px 8px;
-      border-radius: 999px;
-      font-size: 11px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 150ms ease-out, transform 150ms ease-out;
-    }
-
-    .social-link:hover .tooltip {
-      opacity: 1;
-      transform: translate(-50%, -2px);
-    }
-
-    /* Subtle scroll reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(10px);
-      transition:
-        opacity 420ms ease-out,
-        transform 420ms ease-out;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
     }
   </style>
 </head>
@@ -788,11 +68,11 @@
         <div class="logo-dot"></div>
         <div>
           <div class="brand-title">Vikash Kumar</div>
-          <div class="brand-sub">DevOps · Cloud · Automation</div>
+          <div class="brand-sub">DevOps - Cloud - Automation</div>
         </div>
       </div>
       <button class="nav-toggle" id="nav-toggle">
-        ☰
+        &#9776;
       </button>
       <nav class="nav-links">
         <a href="#about">About</a>
@@ -813,34 +93,29 @@
         <div class="hero-left reveal">
           <div class="eyebrow">
             <span class="pulse-dot"></span>
-            <span>DevOps · Cloud · SRE mindset</span>
+            <span>DevOps - Cloud - SRE mindset</span>
           </div>
           <h1 class="hero-title">
             Building reliable<br />
             <span>AWS & Kubernetes</span> platforms.
           </h1>
           <p class="hero-subtitle">
-            I’m a DevOps Engineer with around 3 years of experience designing CI/CD pipelines,
+            I'm a DevOps Engineer with around 3 years of experience designing CI/CD pipelines,
             container platforms, and observability for fast-moving teams. I care about
-            clean automation, predictable releases, and systems that don’t wake you up at 3 AM.
+            clean automation, predictable releases, and systems that don't wake you up at 3 AM.
           </p>
 
           <div class="hero-badges">
-            <div class="badge accent">AWS Certified Solutions Architect – Associate</div>
-            <div class="badge">Terraform · Kubernetes · Jenkins · GitHub Actions</div>
-            <div class="badge">Prometheus · Grafana · Cost Optimization</div>
+            <div class="badge accent">AWS Certified Solutions Architect - Associate</div>
+            <div class="badge">Terraform - Kubernetes - Jenkins - GitHub Actions</div>
+            <div class="badge">Prometheus - Grafana - Cost Optimization</div>
           </div>
 
           <div class="hero-actions">
             <a href="#contact" class="btn btn-primary">
-              <span class="icon">✉</span>
-              <span>Let’s work together</span>
+              <span class="icon">&#9993;</span>
+              <span>Let's work together</span>
             </a>
-            <!-- Replace # with your actual resume link when hosted -->
-            <!-- <a href="#" class="btn btn-ghost">
-              <span class="icon">⬇</span>
-              <span>Download Resume</span>
-            </a> -->
             <a
               href="https://drive.google.com/uc?export=download&id=1XdWyLi-ss9TbPvdAAM6Rcr4gdGdO_O_l"
               class="btn btn-ghost"
@@ -848,7 +123,7 @@
               target="_blank"
               rel="noreferrer"
             >
-              <span class="icon">⬇</span>
+              <span class="icon">&#11015;</span>
               <span>Download Resume</span>
             </a>
           </div>
@@ -856,12 +131,9 @@
 
         <aside class="hero-right reveal">
           <div class="hero-illustration">
-            <!-- You can swap this URL for any cartoon IT/DevOps illustration you like -->
             <img
               src="./devops.png"
-              
               alt="Cartoon DevOps engineer working on a computer"
-              
             />
           </div>
         </aside>
@@ -875,9 +147,9 @@
         </div>
         <div class="card">
           <p class="card-body">
-            I’m Vikash Kumar, a DevOps Engineer focused on building
+            I'm Vikash Kumar, a DevOps Engineer focused on building
             <strong>predictable, observable, and cost-efficient</strong> platforms on AWS.
-            I’ve worked with product teams to automate deployments, migrate from EC2 to
+            I've worked with product teams to automate deployments, migrate from EC2 to
             Kubernetes, and introduce monitoring that actually helps people debug issues,
             not drown in alerts.
           </p>
@@ -904,13 +176,13 @@
             </p>
             <div class="pill-cloud">
               <span class="pill"><span class="pill-dot"></span>AWS (EC2, S3, IAM, VPC, CloudWatch)</span>
-              <span class="pill"><span class="pill-dot"></span>Kubernetes · EKS</span>
-              <span class="pill"><span class="pill-dot"></span>Docker · Docker Compose</span>
-              <span class="pill"><span class="pill-dot"></span>Terraform · IaC</span>
-              <span class="pill"><span class="pill-dot"></span>Jenkins · GitHub Actions · CI/CD</span>
-              <span class="pill"><span class="pill-dot"></span>Prometheus · Grafana</span>
-              <span class="pill"><span class="pill-dot"></span>Linux · Networking basics</span>
-              <span class="pill"><span class="pill-dot"></span>Python · Bash scripting</span>
+              <span class="pill"><span class="pill-dot"></span>Kubernetes - EKS</span>
+              <span class="pill"><span class="pill-dot"></span>Docker - Docker Compose</span>
+              <span class="pill"><span class="pill-dot"></span>Terraform - IaC</span>
+              <span class="pill"><span class="pill-dot"></span>Jenkins - GitHub Actions - CI/CD</span>
+              <span class="pill"><span class="pill-dot"></span>Prometheus - Grafana</span>
+              <span class="pill"><span class="pill-dot"></span>Linux - Networking basics</span>
+              <span class="pill"><span class="pill-dot"></span>Python - Bash scripting</span>
               <span class="pill"><span class="pill-dot"></span>Security & cost optimization mindset</span>
             </div>
           </div>
@@ -935,14 +207,13 @@
           <p class="section-subtitle">How I can help your team or product.</p>
         </div>
         <div class="services-grid">
-          <!-- Service 1 -->
           <article class="card service-card" data-service="1">
             <div class="card-heading">
               <div>
                 <h3 class="card-title">
-                  <span class="service-icon">⚙️</span> DevOps Solutions
+                  <span class="service-icon">&#9881;</span> DevOps Solutions
                 </h3>
-                <div class="card-meta">CI/CD · Automation · Release Engineering</div>
+                <div class="card-meta">CI/CD - Automation - Release Engineering</div>
               </div>
             </div>
             <p class="service-preview">
@@ -957,24 +228,23 @@
                 so every release is traceable and repeatable.
               </p>
               <p>
-                I also focus on versioning, artifact governance, and rollback strategies so it’s
+                I also focus on versioning, artifact governance, and rollback strategies so it's
                 always clear what is running in each environment and how to roll back
                 quickly if needed.
               </p>
             </div>
             <button class="service-readmore" type="button">
-              Read more ▾
+              Read more ▼
             </button>
           </article>
 
-          <!-- Service 2 -->
           <article class="card service-card" data-service="2">
             <div class="card-heading">
               <div>
                 <h3 class="card-title">
-                  <span class="service-icon">☁️</span> Cloud Infrastructure Design
+                  <span class="service-icon">&#9729;</span> Cloud Infrastructure Design
                 </h3>
-                <div class="card-meta">AWS · Kubernetes · IaC</div>
+                <div class="card-meta">AWS - Kubernetes - IaC</div>
               </div>
             </div>
             <p class="service-preview">
@@ -984,7 +254,7 @@
             <div class="service-more">
               <p>
                 From VPCs and networking to EC2, EKS, and managed services, I help
-                design architectures that match your product’s needs without overcomplicating
+                design architectures that match your product's needs without overcomplicating
                 the stack.
               </p>
               <p>
@@ -994,16 +264,15 @@
               </p>
             </div>
             <button class="service-readmore" type="button">
-              Read more ▾
+              Read more ▼
             </button>
           </article>
 
-          <!-- Service 3 -->
           <article class="card service-card" data-service="3">
             <div class="card-heading">
               <div>
                 <h3 class="card-title">
-                  <span class="service-icon">📉</span> FinOps & Cost Optimization
+                  <span class="service-icon">&#128201;</span> FinOps & Cost Optimization
                 </h3>
                 <div class="card-meta">Cloud Cost Analysis & Tuning</div>
               </div>
@@ -1025,18 +294,17 @@
               </p>
             </div>
             <button class="service-readmore" type="button">
-              Read more ▾
+              Read more ▼
             </button>
           </article>
 
-          <!-- Service 4 -->
           <article class="card service-card" data-service="4">
             <div class="card-heading">
               <div>
                 <h3 class="card-title">
-                  <span class="service-icon">📊</span> Monitoring & SRE Solutions
+                  <span class="service-icon">&#128202;</span> Monitoring & SRE Solutions
                 </h3>
-                <div class="card-meta">SLIs · SLOs · Observability</div>
+                <div class="card-meta">SLIs - SLOs - Observability</div>
               </div>
             </div>
             <p class="service-preview">
@@ -1045,7 +313,7 @@
             </p>
             <div class="service-more">
               <p>
-                I’ve rolled out Prometheus and Grafana for services, defining SLIs like
+                I've rolled out Prometheus and Grafana for services, defining SLIs like
                 latency, error rates, and resource saturation. Alerts are based on
                 error budgets instead of raw thresholds, so teams get notified
                 about what actually matters.
@@ -1056,18 +324,17 @@
               </p>
             </div>
             <button class="service-readmore" type="button">
-              Read more ▾
+              Read more ▼
             </button>
           </article>
 
-          <!-- Service 5 -->
           <article class="card service-card" data-service="5">
             <div class="card-heading">
               <div>
                 <h3 class="card-title">
-                  <span class="service-icon">🚀</span> Scalable & Reliable Deployments
+                  <span class="service-icon">&#128640;</span> Scalable & Reliable Deployments
                 </h3>
-                <div class="card-meta">Kubernetes · Containers · Rollouts</div>
+                <div class="card-meta">Kubernetes - Containers - Rollouts</div>
               </div>
             </div>
             <p class="service-preview">
@@ -1076,7 +343,7 @@
             </p>
             <div class="service-more">
               <p>
-                I’ve migrated workloads from EC2 to Kubernetes using Helm and GitOps
+                I've migrated workloads from EC2 to Kubernetes using Helm and GitOps
                 tooling like ArgoCD, enabling automated deployments across multiple
                 environments with consistency.
               </p>
@@ -1086,7 +353,7 @@
               </p>
             </div>
             <button class="service-readmore" type="button">
-              Read more ▾
+              Read more ▼
             </button>
           </article>
         </div>
@@ -1096,14 +363,14 @@
       <section id="experience" class="reveal">
         <div class="section-header">
           <h2 class="section-title">Experience</h2>
-          <p class="section-subtitle">Where I’ve been applying these skills.</p>
+          <p class="section-subtitle">Where I've been applying these skills.</p>
         </div>
         <div class="card-grid">
           <article class="card">
             <div class="card-heading">
               <div>
                 <h3 class="card-title">Associate DevOps Engineer</h3>
-                <div class="card-meta">Dhwani Rural Information System · Nov 2023 – Present · Gurgaon</div>
+                <div class="card-meta">Dhwani Rural Information System - Nov 2023 to Present - Gurgaon</div>
               </div>
               <span class="tag accent">Current</span>
             </div>
@@ -1122,7 +389,7 @@
               <span class="tag">Kubernetes</span>
               <span class="tag">Terraform</span>
               <span class="tag">Jenkins</span>
-              <span class="tag">Prometheus · Grafana</span>
+              <span class="tag">Prometheus - Grafana</span>
             </div>
           </article>
 
@@ -1130,7 +397,7 @@
             <div class="card-heading">
               <div>
                 <h3 class="card-title">DevOps Engineer</h3>
-                <div class="card-meta">Solulab · Dec 2022 – Aug 2023 · Remote</div>
+                <div class="card-meta">Solulab - Dec 2022 to Aug 2023 - Remote</div>
               </div>
               <span class="tag">Previous</span>
             </div>
@@ -1163,8 +430,8 @@
           <article class="card">
             <div class="card-heading">
               <div>
-                <h3 class="card-title">mGrant Platform – DevOps Enhancements</h3>
-                <div class="card-meta">Dhwani · Core product</div>
+                <h3 class="card-title">mGrant Platform - DevOps Enhancements</h3>
+                <div class="card-meta">Dhwani - Core product</div>
               </div>
               <span class="tag accent">Infra redesign</span>
             </div>
@@ -1221,7 +488,7 @@
           <article class="card">
             <div class="card-heading">
               <div>
-                <h3 class="card-title">AWS Solutions Architect – Associate</h3>
+                <h3 class="card-title">AWS Solutions Architect - Associate</h3>
                 <div class="card-meta">Amazon Web Services</div>
               </div>
               <span class="tag accent">Cloud Architecture</span>
@@ -1235,8 +502,8 @@
           <article class="card">
             <div class="card-heading">
               <div>
-                <h3 class="card-title">Docker Essentials · DevOps on AWS · GCP Milestone</h3>
-                <div class="card-meta">IBM · Coursera · Google Cloud</div>
+                <h3 class="card-title">Docker Essentials - DevOps on AWS - GCP Milestone</h3>
+                <div class="card-meta">IBM - Coursera - Google Cloud</div>
               </div>
               <span class="tag">Continuous learning</span>
             </div>
@@ -1252,20 +519,20 @@
       <section id="contact" class="reveal">
         <div class="section-header">
           <h2 class="section-title">Contact</h2>
-          <p class="section-subtitle">Let’s build something reliable together.</p>
+          <p class="section-subtitle">Let's build something reliable together.</p>
         </div>
         <div class="contact-card">
           <div>
             <h3 class="contact-title">Got a role, project, or idea?</h3>
             <p class="contact-text">
-              I’m open to DevOps / Platform / Cloud roles where I can own infrastructure,
-              CI/CD, and observability. I’m also happy to collaborate on DevOps projects
+              I'm open to DevOps / Platform / Cloud roles where I can own infrastructure,
+              CI/CD, and observability. I'm also happy to collaborate on DevOps projects
               or help with guidance where I can add value.
             </p>
             <div class="contact-detail-row">
               <div class="contact-item">
-                <span class="icon">📍</span>
-                <span>Gurgaon, India · Open to remote</span>
+                <span class="icon">&#128205;</span>
+                <span>Gurgaon, India - Open to remote</span>
               </div>
             </div>
             <div class="social-row">
@@ -1337,12 +604,12 @@
                 </option>
               </select>
               <p class="form-hint">
-                I’ll tailor my reply based on what you pick here.
+                I'll tailor my reply based on what you pick here.
               </p>
             </div>
             <div class="contact-actions">
               <button type="submit" class="btn btn-primary">
-                <span class="icon">📨</span>
+                <span class="icon">&#128232;</span>
                 <span>Send Email</span>
               </button>
             </div>
@@ -1352,101 +619,6 @@
     </main>
   </div>
 
-  <script type="application/json" id="legacy-inline-script">
-    // Minimal scroll-reveal animation
-    // Mobile nav toggle
-const navToggle = document.getElementById("nav-toggle");
-const navLinks = document.querySelector(".nav-links");
-
-navToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
-});
-
-    const revealEls = document.querySelectorAll(".reveal");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-    revealEls.forEach((el) => observer.observe(el));
-
-    // Services "Read more" toggles
-    document.querySelectorAll(".service-card").forEach((card) => {
-      const btn = card.querySelector(".service-readmore");
-      const more = card.querySelector(".service-more");
-      btn.addEventListener("click", () => {
-        const isVisible = more.classList.contains("visible");
-        more.classList.toggle("visible");
-        btn.textContent = isVisible ? "Read more ▾" : "Show less ▴";
-      });
-    });
-
-    // Contact form -> mailto handler with tone per reason, no name/email lines
-    const contactForm = document.getElementById("contact-form");
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById("name").value.trim();
-      const reason = document.getElementById("reason").value;
-
-      if (!name || !reason) {
-        alert("Please fill in all fields before sending.");
-        return;
-      }
-
-      let subject = "";
-      let bodyIntro = "";
-
-      switch (reason) {
-        case "connect":
-          subject = "Let’s connect · from your DevOps portfolio";
-          bodyIntro =
-            `Hey Vikash,\n\nI found your portfolio and would love to connect, share ideas, and grow together around DevOps / Cloud.`;
-          break;
-        case "fulltime":
-          subject = "Full-time DevOps opportunity · from your portfolio";
-          bodyIntro =
-            "Dear Vikash,\n\nI’m reaching out regarding a potential full-time DevOps / Cloud role and would like to explore if you’d be a good fit for our team.";
-          break;
-        case "projects":
-          subject = "DevOps / Cloud project collaboration inquiry";
-          bodyIntro =
-            "Hi Vikash,\n\nI’d like to discuss a DevOps / Cloud project where we could collaborate on automation, infrastructure, or reliability.";
-          break;
-        case "guidance":
-          subject = "Request for guidance / help in DevOps";
-          bodyIntro =
-            "Hi Vikash,\n\nI’m looking for some guidance or help related to DevOps / Cloud and wanted to reach out to you after seeing your work.";
-          break;
-        default:
-          subject = "Message from your portfolio";
-          bodyIntro = "Hi Vikash,\n\nI wanted to get in touch with you via your portfolio website.";
-      }
-
-      const lines = [
-        bodyIntro,
-        "",
-        `My name is ${name}.`,
-        "",
-        "Looking forward to hearing from you.",
-        "",
-        "Best,",
-        name
-      ];
-
-      const mailto = `mailto:vikashkumar07844@gmail.com?subject=${encodeURIComponent(
-        subject
-      )}&body=${encodeURIComponent(lines.join("\n"))}`;
-
-      window.location.href = mailto;
-    });
-  </script>
   <script src="script.js" defer></script>
 </body>
 </html>

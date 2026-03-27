@@ -4,6 +4,9 @@ const RESUME_DOWNLOAD_URL =
 function updatePageContent() {
   const navLinks = document.querySelector(".nav-links");
   const aboutNavLink = navLinks?.querySelector('a[href="#about"]');
+  const skillsNavLink = navLinks?.querySelector('a[href="#skills"]');
+  const servicesNavLink = navLinks?.querySelector('a[href="#services"]');
+  const experienceNavLink = navLinks?.querySelector('a[href="#experience"]');
 
   if (navLinks && aboutNavLink && !navLinks.querySelector('a[href="#achievements"]')) {
     const achievementsLink = document.createElement("a");
@@ -12,34 +15,105 @@ function updatePageContent() {
     aboutNavLink.insertAdjacentElement("afterend", achievementsLink);
   }
 
+  if (skillsNavLink) {
+    skillsNavLink.textContent = "Tech Stack";
+  }
+
+  if (servicesNavLink) {
+    servicesNavLink.textContent = "Case Studies";
+  }
+
+  if (experienceNavLink) {
+    experienceNavLink.textContent = "Experience";
+  }
+
+  const eyebrow = document.querySelector(".eyebrow");
+  if (eyebrow) {
+    eyebrow.innerHTML = `
+      <span class="pulse-dot"></span>
+      <span>DevOps Engineer | 3+ years | Gurgaon, India | Open to remote roles</span>
+    `;
+  }
+
   const heroSubtitle = document.querySelector(".hero-subtitle");
   if (heroSubtitle) {
     heroSubtitle.textContent =
-      "I am a DevOps Engineer focused on building cloud infrastructure, delivery pipelines, container platforms, and observability systems that help teams release faster with more confidence. My work spans AWS, Kubernetes, Terraform, CI/CD automation, monitoring, and reliability practices designed to keep systems stable, scalable, and easier to operate as products grow.";
+      "I help engineering teams build reliable delivery systems on AWS and Kubernetes with strong focus on CI/CD automation, infrastructure as code, observability, and cost-aware operations. My strongest value comes from turning manual, fragile deployment workflows into repeatable platforms that are easier to ship on, easier to monitor, and easier to scale.";
+  }
+
+  const heroLeft = document.querySelector(".hero-left");
+  if (heroLeft && !document.querySelector(".hero-summary")) {
+    const heroActions = heroLeft.querySelector(".hero-actions");
+    const summary = document.createElement("div");
+    summary.className = "hero-summary";
+    summary.innerHTML = `
+      <div class="hero-summary-line">DevOps Engineer | AWS, Kubernetes, Terraform, Jenkins, GitHub Actions</div>
+      <div class="hero-summary-line">Focused on platform reliability, deployment velocity, observability, and cloud cost control</div>
+    `;
+
+    if (heroActions) {
+      heroActions.insertAdjacentElement("beforebegin", summary);
+    } else {
+      heroLeft.appendChild(summary);
+    }
+  }
+
+  const heroSection = document.querySelector(".hero");
+  if (heroSection && !document.getElementById("impact-highlights")) {
+    const impactSection = document.createElement("section");
+    impactSection.id = "impact-highlights";
+    impactSection.className = "impact-strip reveal visible";
+    impactSection.innerHTML = `
+      <article class="impact-card">
+        <div class="impact-value"><span data-count-to="70" data-suffix="%">0%</span></div>
+        <div class="impact-label">faster deployments after CI/CD optimization and test integration</div>
+      </article>
+      <article class="impact-card">
+        <div class="impact-value"><span data-count-to="46" data-suffix="%">0%</span></div>
+        <div class="impact-label">lower AWS staging cost through scheduling, audits, and right-sizing</div>
+      </article>
+      <article class="impact-card">
+        <div class="impact-value">EC2 to EKS</div>
+        <div class="impact-label">migrated legacy deployment patterns toward Kubernetes with Helm and ArgoCD</div>
+      </article>
+    `;
+    heroSection.insertAdjacentElement("afterend", impactSection);
   }
 
   const aboutCard = document.querySelector("#about .card");
+  const aboutSubtitle = document.querySelector("#about .section-subtitle");
+  if (aboutSubtitle) {
+    aboutSubtitle.textContent = "A quick recruiter-friendly summary of what I do and where I add value.";
+  }
   if (aboutCard) {
     aboutCard.innerHTML = `
       <p class="card-body">
         I am Vikash Kumar, a DevOps Engineer focused on building <strong>predictable, observable, and cost-efficient</strong>
         platforms on AWS. Over the last few years I have worked closely with engineering teams to improve release workflows,
         modernize infrastructure, containerize workloads, strengthen observability, and bring more operational discipline to
-        growing systems. I enjoy solving problems that sit between development and operations, especially where automation,
-        infrastructure design, and production reliability all need to come together.
+        growing systems. I work best in environments where delivery speed matters, but reliability, rollback safety, and
+        operational clarity matter just as much.
       </p>
       <ul class="card-list">
-        <li>Design CI/CD pipelines that improve release speed while keeping deployments traceable and safe.</li>
+        <li>Design CI/CD pipelines that improve release speed while keeping deployments traceable, testable, and safe.</li>
         <li>Use Terraform and infrastructure as code so environments stay repeatable, reviewable, and easier to scale.</li>
-        <li>Build around observability early with metrics, dashboards, and alerting that support faster troubleshooting.</li>
-        <li>Work with developers to simplify delivery workflows instead of turning DevOps into a handoff process.</li>
+        <li>Build observability around metrics, dashboards, and alerting to reduce blind spots and speed up debugging.</li>
+        <li>Partner with developers to simplify release workflows instead of turning DevOps into a ticket queue.</li>
         <li>Approach infrastructure with equal attention to reliability, operational simplicity, and cost efficiency.</li>
       </ul>
     `;
   }
 
   const skillsSection = document.querySelector("#skills");
+  const skillsTitle = skillsSection?.querySelector(".section-title");
+  const skillsSubtitle = skillsSection?.querySelector(".section-subtitle");
   const skillsWrapper = skillsSection?.querySelector(".skills-wrapper");
+  if (skillsTitle) {
+    skillsTitle.textContent = "Technical Stack";
+  }
+  if (skillsSubtitle) {
+    skillsSubtitle.textContent = "Core tools grouped the way recruiters and engineers actually scan them.";
+  }
   if (skillsWrapper) {
     skillsWrapper.classList.add("skills-wrapper-single");
     skillsWrapper.innerHTML = `
@@ -49,17 +123,38 @@ function updatePageContent() {
           My strongest hands-on focus is on AWS, Kubernetes, Terraform, Linux-based operations, and the delivery workflows that help
           teams move from manual releases to repeatable, production-ready systems.
         </p>
-        <div class="pill-cloud">
-          <span class="pill"><span class="pill-dot"></span>AWS (EC2, S3, IAM, VPC, CloudWatch)</span>
-          <span class="pill"><span class="pill-dot"></span>Kubernetes and Amazon EKS</span>
-          <span class="pill"><span class="pill-dot"></span>Docker and Docker Compose</span>
-          <span class="pill"><span class="pill-dot"></span>Terraform and infrastructure as code</span>
-          <span class="pill"><span class="pill-dot"></span>Jenkins, GitHub Actions, and CI/CD</span>
-          <span class="pill"><span class="pill-dot"></span>Helm, ArgoCD, and GitOps workflows</span>
-          <span class="pill"><span class="pill-dot"></span>Prometheus, Grafana, and monitoring strategy</span>
-          <span class="pill"><span class="pill-dot"></span>Linux administration and networking basics</span>
-          <span class="pill"><span class="pill-dot"></span>Python and Bash automation</span>
-          <span class="pill"><span class="pill-dot"></span>Reliability, security awareness, and cost optimization</span>
+        <div class="stack-grid">
+          <div class="stack-group">
+            <h3 class="stack-title">Cloud</h3>
+            <div class="pill-cloud">
+              <span class="pill"><span class="pill-dot"></span>AWS EC2, S3, IAM, VPC, CloudWatch</span>
+              <span class="pill"><span class="pill-dot"></span>Cost optimization and environment hygiene</span>
+            </div>
+          </div>
+          <div class="stack-group">
+            <h3 class="stack-title">Containers and Platform</h3>
+            <div class="pill-cloud">
+              <span class="pill"><span class="pill-dot"></span>Kubernetes and Amazon EKS</span>
+              <span class="pill"><span class="pill-dot"></span>Docker, Docker Compose, Helm</span>
+              <span class="pill"><span class="pill-dot"></span>ArgoCD and GitOps workflows</span>
+            </div>
+          </div>
+          <div class="stack-group">
+            <h3 class="stack-title">CI/CD and Automation</h3>
+            <div class="pill-cloud">
+              <span class="pill"><span class="pill-dot"></span>Jenkins and GitHub Actions</span>
+              <span class="pill"><span class="pill-dot"></span>Terraform and infrastructure as code</span>
+              <span class="pill"><span class="pill-dot"></span>Python and Bash automation</span>
+            </div>
+          </div>
+          <div class="stack-group">
+            <h3 class="stack-title">Reliability and Operations</h3>
+            <div class="pill-cloud">
+              <span class="pill"><span class="pill-dot"></span>Prometheus, Grafana, and monitoring strategy</span>
+              <span class="pill"><span class="pill-dot"></span>Linux administration and networking basics</span>
+              <span class="pill"><span class="pill-dot"></span>Release reliability and security awareness</span>
+            </div>
+          </div>
         </div>
       </div>
     `;
@@ -132,7 +227,7 @@ function updatePageContent() {
               <h3 class="card-title">Improved Delivery Speed</h3>
               <div class="card-meta">CI/CD optimization and automation</div>
             </div>
-            <span class="tag accent">70% faster</span>
+            <span class="tag accent"><span data-count-to="70" data-suffix="% faster">0% faster</span></span>
           </div>
           <p class="card-body">
             Reduced deployment time by around 70% through pipeline optimization, better automation, and cleaner release flow design,
@@ -145,7 +240,7 @@ function updatePageContent() {
               <h3 class="card-title">Cloud Cost Optimization</h3>
               <div class="card-meta">FinOps mindset in day-to-day operations</div>
             </div>
-            <span class="tag accent">46% savings</span>
+            <span class="tag accent"><span data-count-to="46" data-suffix="% savings">0% savings</span></span>
           </div>
           <p class="card-body">
             Reduced AWS staging infrastructure cost by roughly 46% through usage review, smarter instance scheduling, and resource
@@ -170,7 +265,114 @@ function updatePageContent() {
     aboutSection.insertAdjacentElement("afterend", achievementsSection);
   }
 
+  const servicesSection = document.getElementById("services");
+  if (servicesSection) {
+    servicesSection.innerHTML = `
+      <div class="section-header">
+        <h2 class="section-title">Case Studies</h2>
+        <p class="section-subtitle">Technical work presented as problem, stack, execution, and outcome.</p>
+      </div>
+      <div class="case-study-grid">
+        <article class="card case-study-card">
+          <div class="card-heading">
+            <div>
+              <h3 class="card-title">Legacy EC2 to Kubernetes Migration</h3>
+              <div class="card-meta">Migration, deployment consistency, and platform modernization</div>
+            </div>
+            <span class="tag accent">Migration</span>
+          </div>
+          <div class="case-study-block">
+            <div class="case-study-label">Problem</div>
+            <p class="card-body">Legacy deployment patterns on EC2 made environments harder to standardize, slower to evolve, and more dependent on manual operational steps.</p>
+          </div>
+          <div class="case-study-block">
+            <div class="case-study-label">Stack</div>
+            <p class="card-body">AWS, Kubernetes, EKS, Helm, ArgoCD, Terraform</p>
+          </div>
+          <div class="case-study-block">
+            <div class="case-study-label">What I Changed</div>
+            <ul class="card-list">
+              <li>Helped move workloads toward Kubernetes-based deployment patterns.</li>
+              <li>Used Helm for packaging, Terraform for repeatable infrastructure, and ArgoCD for GitOps-style delivery.</li>
+              <li>Improved consistency between staging and production through more predictable deployment workflows.</li>
+            </ul>
+          </div>
+          <div class="case-study-block">
+            <div class="case-study-label">Result</div>
+            <p class="card-body">The platform became easier to manage, easier to replicate across environments, and better aligned with scalable release practices.</p>
+          </div>
+        </article>
+        <article class="card case-study-card">
+          <div class="card-heading">
+            <div>
+              <h3 class="card-title">CI/CD Acceleration and Release Reliability</h3>
+              <div class="card-meta">Faster deployments with safer automation</div>
+            </div>
+            <span class="tag accent">CI/CD</span>
+          </div>
+          <div class="case-study-block">
+            <div class="case-study-label">Problem</div>
+            <p class="card-body">Slow pipeline execution and inconsistent release steps reduced engineering velocity and made deployments more operationally expensive.</p>
+          </div>
+          <div class="case-study-block">
+            <div class="case-study-label">Stack</div>
+            <p class="card-body">Jenkins, GitHub Actions, automated tests, container delivery workflows</p>
+          </div>
+          <div class="case-study-block">
+            <div class="case-study-label">What I Changed</div>
+            <ul class="card-list">
+              <li>Optimized CI/CD stages and improved automation around build, test, and deployment flow.</li>
+              <li>Integrated better testing into pipelines to reduce manual validation pressure.</li>
+              <li>Focused on repeatable release behavior instead of ad hoc operational fixes.</li>
+            </ul>
+          </div>
+          <div class="case-study-block">
+            <div class="case-study-label">Result</div>
+            <p class="card-body">Deployment time dropped by around 70%, giving teams faster feedback cycles and more confidence in shipping changes.</p>
+          </div>
+        </article>
+        <article class="card case-study-card">
+          <div class="card-heading">
+            <div>
+              <h3 class="card-title">Observability and Cost Efficiency Improvements</h3>
+              <div class="card-meta">Operational visibility with FinOps discipline</div>
+            </div>
+            <span class="tag accent">Operations</span>
+          </div>
+          <div class="case-study-block">
+            <div class="case-study-label">Problem</div>
+            <p class="card-body">Teams needed stronger visibility into service behavior while cloud environments also needed tighter control over unnecessary spend.</p>
+          </div>
+          <div class="case-study-block">
+            <div class="case-study-label">Stack</div>
+            <p class="card-body">Prometheus, Grafana, AWS CloudWatch, resource audits, scheduling and right-sizing</p>
+          </div>
+          <div class="case-study-block">
+            <div class="case-study-label">What I Changed</div>
+            <ul class="card-list">
+              <li>Implemented centralized monitoring with dashboards and better operational signals.</li>
+              <li>Reviewed resource usage and removed waste through smarter scheduling and infra tuning.</li>
+              <li>Improved the quality of operational awareness so issues could be found and understood faster.</li>
+            </ul>
+          </div>
+          <div class="case-study-block">
+            <div class="case-study-label">Result</div>
+            <p class="card-body">Monitoring became more actionable and staging infrastructure cost was reduced by roughly 46% without compromising usefulness.</p>
+          </div>
+        </article>
+      </div>
+    `;
+  }
+
   const projectCards = document.querySelectorAll("#projects .card");
+  const projectsTitle = document.querySelector("#projects .section-title");
+  const projectsSubtitle = document.querySelector("#projects .section-subtitle");
+  if (projectsTitle) {
+    projectsTitle.textContent = "Selected Work";
+  }
+  if (projectsSubtitle) {
+    projectsSubtitle.textContent = "Additional examples of delivery, observability, and platform improvement work.";
+  }
   if (projectCards[0]) {
     const body = projectCards[0].querySelector(".card-body");
     const list = projectCards[0].querySelector(".card-list");
@@ -205,6 +407,15 @@ function updatePageContent() {
     }
   }
 
+  const experienceTitle = document.querySelector("#experience .section-title");
+  const experienceSubtitle = document.querySelector("#experience .section-subtitle");
+  if (experienceTitle) {
+    experienceTitle.textContent = "Experience Snapshot";
+  }
+  if (experienceSubtitle) {
+    experienceSubtitle.textContent = "A recruiter-friendly view of roles, ownership, and impact.";
+  }
+
   const certCards = document.querySelectorAll("#certs .card");
   if (certCards[0]) {
     const body = certCards[0].querySelector(".card-body");
@@ -223,6 +434,60 @@ function updatePageContent() {
 }
 
 updatePageContent();
+
+function animateCountUp(element) {
+  const target = Number(element.dataset.countTo);
+  const prefix = element.dataset.prefix || "";
+  const suffix = element.dataset.suffix || "";
+
+  if (!Number.isFinite(target)) {
+    return;
+  }
+
+  const durationMs = 1400;
+  const startTime = performance.now();
+
+  function tick(now) {
+    const progress = Math.min((now - startTime) / durationMs, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.round(target * eased);
+
+    element.textContent = `${prefix}${current}${suffix}`;
+
+    if (progress < 1) {
+      requestAnimationFrame(tick);
+    }
+  }
+
+  requestAnimationFrame(tick);
+}
+
+function initCountUps() {
+  const countEls = document.querySelectorAll("[data-count-to]");
+
+  if (!("IntersectionObserver" in window)) {
+    countEls.forEach((el) => animateCountUp(el));
+    return;
+  }
+
+  const counterObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        animateCountUp(entry.target);
+        counterObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.45 }
+  );
+
+  countEls.forEach((el) => counterObserver.observe(el));
+}
+
+initCountUps();
 
 const navToggle = document.getElementById("nav-toggle");
 const navLinks = document.querySelector(".nav-links");
