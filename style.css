@@ -213,22 +213,6 @@
       max-width: 540px;
     }
 
-    .hero-summary {
-      display: grid;
-      gap: 8px;
-      margin-top: 2px;
-    }
-
-    .hero-summary-line {
-      padding: 9px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(129, 140, 248, 0.35);
-      background: rgba(15, 23, 42, 0.92);
-      color: #dbe4ff;
-      font-size: 13px;
-      line-height: 1.45;
-    }
-
     .hero-badges {
       display: flex;
       flex-wrap: wrap;
@@ -339,8 +323,8 @@
     /* Sections generic */
     .section-header {
       display: flex;
-      justify-content: space-between;
-      align-items: baseline;
+      flex-direction: column;
+      align-items: flex-start;
       gap: 8px;
       margin-bottom: 18px;
     }
@@ -354,8 +338,7 @@
     }
 
     .section-subtitle {
-      font-size: 13px;
-      color: var(--muted);
+      display: none;
     }
 
     .impact-strip {

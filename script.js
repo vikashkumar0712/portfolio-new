@@ -41,23 +41,6 @@ function updatePageContent() {
       "I help engineering teams build reliable delivery systems on AWS and Kubernetes with strong focus on CI/CD automation, infrastructure as code, observability, and cost-aware operations. My strongest value comes from turning manual, fragile deployment workflows into repeatable platforms that are easier to ship on, easier to monitor, and easier to scale.";
   }
 
-  const heroLeft = document.querySelector(".hero-left");
-  if (heroLeft && !document.querySelector(".hero-summary")) {
-    const heroActions = heroLeft.querySelector(".hero-actions");
-    const summary = document.createElement("div");
-    summary.className = "hero-summary";
-    summary.innerHTML = `
-      <div class="hero-summary-line">DevOps Engineer | AWS, Kubernetes, Terraform, Jenkins, GitHub Actions</div>
-      <div class="hero-summary-line">Focused on platform reliability, deployment velocity, observability, and cloud cost control</div>
-    `;
-
-    if (heroActions) {
-      heroActions.insertAdjacentElement("beforebegin", summary);
-    } else {
-      heroLeft.appendChild(summary);
-    }
-  }
-
   const heroSection = document.querySelector(".hero");
   if (heroSection && !document.getElementById("impact-highlights")) {
     const impactSection = document.createElement("section");
