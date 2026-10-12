@@ -92,16 +92,20 @@
       color: var(--muted);
     }
 
+    /* NAVBAR FIX (2026-10-12): 10 nav items must stay on one line.
+       Was flex-wrap: wrap + gap 14px -> wrapped to 2 rows on desktop.
+       Now: no wrap, tighter gap/padding, hamburger below 1100px. */
     .nav-links {
       display: flex;
-      gap: 14px;
-      font-size: 14px;
+      gap: 8px;
+      font-size: 13.5px;
       color: var(--muted);
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
     }
 
     .nav-links a {
-      padding: 6px 10px;
+      white-space: nowrap;
+      padding: 6px 8px;
       border-radius: 999px;
       border: 1px solid transparent;
       transition: background var(--transition-fast),
@@ -319,7 +323,6 @@
       border-radius: 20px;
     }
 
-    /* Example cartoon illustration from unDraw (you can replace URL if you want) */
     /* Sections generic */
     .section-header {
       display: flex;
@@ -672,6 +675,7 @@
       margin-top: 4px;
       align-items: center;
     }
+
      /* Hamburger hidden on desktop */
 .nav-toggle {
   display: none;
@@ -682,8 +686,9 @@
   cursor: pointer;
 }
 
-/* Mobile Styles */
-@media (max-width: 760px) {
+/* NAVBAR FIX (2026-10-12): hamburger now appears below 1100px
+   (was 760px) so the 10-item nav never wraps or overflows. */
+@media (max-width: 1100px) {
   .nav {
     position: relative;
   }
