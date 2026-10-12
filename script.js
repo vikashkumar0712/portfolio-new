@@ -574,6 +574,11 @@ if (contactForm) {
         bodyIntro =
           "Hi Vikash,\n\nI'm looking for some guidance or help related to DevOps / Cloud and wanted to reach out to you after seeing your work.";
         break;
+      case "freelance":
+        subject = "Freelance DevOps consulting inquiry - from your portfolio";
+        bodyIntro =
+          "Hi Vikash,\n\nI saw your freelance DevOps consulting offers on your portfolio and would like to discuss a project (AWS cost audit, CI/CD setup, or Kubernetes/observability).";
+        break;
       default:
         subject = "Message from your portfolio";
         bodyIntro =
