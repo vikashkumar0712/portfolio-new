@@ -186,3 +186,39 @@ if (contactForm) {
     window.location.href = mailto;
   });
 }
+
+/* ---- Theme toggle: light/dark with system preference default ---- */
+(function initThemeToggle() {
+  const toggle = document.getElementById("theme-toggle");
+  const icon = document.getElementById("theme-icon");
+  const html = document.documentElement;
+  if (!toggle) return;
+
+  function setIcon(theme) {
+    // Moon in light mode (click to go dark), sun in dark mode (click to go light)
+    if (icon) icon.innerHTML = theme === "dark" ? "&#9728;" : "&#127769;";
+  }
+
+  // Sync icon with current theme (set by head script)
+  setIcon(html.getAttribute("data-theme") || "light");
+
+  toggle.addEventListener("click", () => {
+    const current = html.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    const next = current === "dark" ? "light" : "dark";
+    html.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+    setIcon(next);
+  });
+
+  // Follow system changes only when user hasn't picked manually
+  try {
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    mq.addEventListener("change", (e) => {
+      if (!localStorage.getItem("theme")) {
+        const t = e.matches ? "dark" : "light";
+        html.setAttribute("data-theme", t);
+        setIcon(t);
+      }
+    });
+  } catch (e) {}
+})();
