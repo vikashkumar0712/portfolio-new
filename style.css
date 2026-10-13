@@ -27,6 +27,7 @@
       --tag-text: #6d28d9;
       --pill-bg: #ffffff;
       --input-bg: #ffffff;
+      --stack-bg: rgba(241, 245, 249, 0.9);
       --radius-xl: 18px;
       --radius-full: 999px;
       --transition-fast: 180ms ease-out;
@@ -61,6 +62,7 @@
       --tag-text: #e9d5ff;
       --pill-bg: rgba(15, 23, 42, 0.95);
       --input-bg: rgba(15, 23, 42, 0.92);
+      --stack-bg: rgba(2, 6, 23, 0.42);
     }
 
     * {
@@ -541,8 +543,8 @@
 .stack-group {
   border-radius: 16px;
   padding: 14px;
-  border: 1px solid rgba(100, 116, 139, 0.18);
-  background: rgba(241, 245, 249, 0.9);
+  border: 1px solid var(--border);
+  background: var(--stack-bg);
 }
 
 .stack-title {
@@ -740,26 +742,86 @@
   cursor: pointer;
 }
 
-/* Theme toggle button */
+/* Theme toggle: iOS-style switch */
 .theme-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--card-bg);
-  color: var(--text);
-  font-size: 18px;
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
   flex-shrink: 0;
-  transition: transform 140ms ease-out, border-color var(--transition-fast);
+  line-height: 0;
 }
 
-.theme-toggle:hover {
-  transform: translateY(-1px);
-  border-color: var(--accent);
+.toggle-track {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 58px;
+  height: 32px;
+  border-radius: 999px;
+  padding: 0 7px;
+  position: relative;
+  background: #e2e8f0;
+  border: 1px solid rgba(100, 116, 139, 0.35);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+[data-theme="dark"] .toggle-track {
+  background: #1e1b4b;
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+.toggle-icon {
+  font-size: 15px;
+  line-height: 1;
+  z-index: 1;
+  transition: opacity var(--transition-fast);
+}
+
+.toggle-icon.sun {
+  color: #f59e0b;
+  opacity: 1;
+}
+
+.toggle-icon.moon {
+  color: #64748b;
+  opacity: 0.55;
+}
+
+[data-theme="dark"] .toggle-icon.sun {
+  color: #64748b;
+  opacity: 0.55;
+}
+
+[data-theme="dark"] .toggle-icon.moon {
+  color: #fbbf24;
+  opacity: 1;
+}
+
+.toggle-knob {
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.3);
+  transition: transform 220ms ease-out;
+  z-index: 2;
+}
+
+[data-theme="dark"] .toggle-knob {
+  transform: translateX(25px);
+  background: #64748b;
+}
+
+/* Wrapper for theme toggle + hamburger: keeps them grouped at the corner */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
 /* NAVBAR FIX (2026-10-12): hamburger now appears below 1200px
