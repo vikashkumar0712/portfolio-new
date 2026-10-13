@@ -99,8 +99,8 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(14px);
-      background: rgba(255, 255, 255, 0.85); /* light navbar */
-      border-bottom: 1px solid #e2e8f0;
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--nav-border);
     }
 
     .nav {
@@ -284,7 +284,7 @@
       border: 1px solid rgba(100, 116, 139, 0.3);
       background: radial-gradient(circle at top left,
         rgba(148, 163, 184, 0.28),
-        rgba(255, 255, 255, 0.97)
+        var(--card-bg)
       );
       color: var(--text-strong);
     }
@@ -454,7 +454,7 @@
 
     .card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 20px 38px rgba(255, 255, 255, 0.95);
+      box-shadow: var(--card-shadow-hover);
       border-color: rgba(124, 58, 237, 0.35);
       background: radial-gradient(circle at top, var(--card-bg), var(--card-bg) 60%, var(--card-bg) 100%);
     }
@@ -573,7 +573,7 @@
       padding: 6px 10px;
       border-radius: 999px;
       border: 1px solid rgba(100, 116, 139, 0.25);
-      background: rgba(255, 255, 255, 0.97);
+      background: var(--card-bg);
       font-size: 13px;
       display: inline-flex;
       align-items: center;
@@ -670,7 +670,7 @@
       padding: 5px 10px;
       border-radius: 999px;
       border: 1px solid rgba(124, 58, 237, 0.35);
-      background: rgba(255, 255, 255, 0.97);
+      background: var(--card-bg);
       color: var(--text-strong);
       cursor: pointer;
       display: inline-flex;
@@ -777,12 +777,12 @@
     position: absolute;
     top: 56px;
     right: 18px;
-    background: rgba(255, 255, 255, 0.97);
+    background: var(--card-bg);
     padding: 14px;
     display: none;
     flex-direction: column;
     gap: 12px;
-    border: 1px solid rgba(100, 116, 139, 0.25);
+    border: 1px solid var(--border);
     border-radius: 12px;
     width: 200px;
   }
@@ -872,7 +872,7 @@
       width: 32px;
       height: 32px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.95);
+      background: var(--card-bg);
       border: 1px solid rgba(100, 116, 139, 0.3);
       display: flex;
       align-items: center;
